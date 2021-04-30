@@ -1,0 +1,10 @@
+.main-header {
+    padding: 18px 20px;
+    background: #1C1A19;
+}
+
+.main-header-wrap {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
