@@ -1,14 +1,15 @@
 import React from "react";
+import MenuItem from "./MenuItem";
 import './menu.css';
 
 class Menu extends React.Component {
     render() {
         return (
-            <div className='menu'>
+            <ul className='menu'>
                 {this.props.linkList.map(linkItem => (
-                    <a href={linkItem.url}>{linkItem.text}</a>
+                    <MenuItem key={linkItem.id} text={linkItem.text} url={linkItem.url} handleClick={this.props.handleClick}/>
                 ))}
-            </div>
+            </ul>
         );
     }
 }
