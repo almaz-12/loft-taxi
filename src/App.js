@@ -12,19 +12,30 @@ const pages = {
 };
 
 class App extends React.Component {
-  state = {currentPage: 'login'};
+  state = {
+    currentPage: 'login',
+    isLogin: false
+  };
 
-  navigateTo = (page) => {
-    this.setState({currentPage: page});
+  navigateTo = (page, isLogin) => {
+    this.setState({currentPage: page, isLogin: isLogin});
   };
 
   render() {
     return(
       <div className="App">
-        <Header handleClick={this.navigateTo}/>
-        <div className='content'>
-          {pages[this.state.currentPage]}
-        </div>      
+        <section>
+          {
+            this.state.isLogin ? 
+              <div class='mainPage'>
+                <Header handleClick={this.navigateTo}/> 
+                <div className='content'>
+                  {pages[this.state.currentPage]}
+                </div> 
+              </div>
+            : <Login handleLogin={this.navigateTo}/>
+          }          
+        </section> 
       </div>
     );
   }
