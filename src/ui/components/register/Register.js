@@ -12,7 +12,7 @@ const Register = (props) => {
             <button onClick={
                     (e) => {
                         e.preventDefault(); 
-                        props.handleLogin('map',true)
+                        props.logIn(true)
                     }
                 }
             >Зарегистрироваться</button>

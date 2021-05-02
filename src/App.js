@@ -12,16 +12,19 @@ class App extends React.Component {
     isLogin: false
   };
 
-  navigateTo = (page, isLogin) => {
-    this.setState({currentPage: page, isLogin: isLogin});
-    console.log(page);
+  navigateTo = (page) => {
+    this.setState({currentPage: page});
   };
 
+  logIn = (isLogin) => {
+    this.setState({currentPage: 'map', isLogin: isLogin});
+  }
+
   pages = {
-    login: <Login handleLogin={this.navigateTo}/>,
-    register: <Register handleLogin={this.navigateTo}/>,
-    map: <Map/>,
-    profile: <Profile/>,
+    login: <Login navigateTo={this.navigateTo} logIn={this.logIn}/>,
+    register: <Register logIn={this.logIn}/>,
+    map: <Map isLoggedIn={this.state.isLogin} navigateTo={this.navigateTo}/>,
+    profile: <Profile isLoggedIn={this.state.isLogin} navigateTo={this.navigateTo}/>,
   };
 
   render() {
