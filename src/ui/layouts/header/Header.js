@@ -1,14 +1,13 @@
-import './header.css';
-import Logo from '../../components/logo/Logo';
-import Menu from '../../components/menu/Menu';
+import './Header.css';
+import Logo from '../../components/logo';
+import Menu from '../../components/menu';
 
 const logo = './images/header-logo.svg';
 
 const linkList = [
-    { url: 'login', text: "Логин", id: 0 },
-    { url: 'map', text: "Карта", id: 1 },
-    { url: 'profile', text: "Профиль", id: 2 },
-    { url: 'logout', text: "Выйти", id: 3 }
+    { url: 'map', text: "Карта", id: 0 },
+    { url: 'profile', text: "Профиль", id: 1 },
+    { url: 'logout', text: "Выйти", id: 2 }
 ];
 
 const Header = (props) => (    
