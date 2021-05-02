@@ -1,6 +1,6 @@
 import './Header.css';
-import Logo from '../../components/logo/Logo';
-import Menu from '../../components/menu/Menu';
+import Logo from '../../components/logo';
+import Menu from '../../components/menu';
 
 const logo = './images/header-logo.svg';
 

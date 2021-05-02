@@ -1,20 +1,16 @@
-import React from "react";
-import Header from './ui/layouts/header/Header';
-import Login from './ui/components/login/Login';
-import Register from './ui/components/register/Register';
-import Map from './ui/components/map/Map';
-import Profile from './ui/components/profile/Profile';
 import './App.css';
-
-
+import React from "react";
+import Header from './ui/layouts/header';
+import Login from './ui/components/login';
+import Register from './ui/components/register';
+import Map from './ui/components/map';
+import Profile from './ui/components/profile';
 
 class App extends React.Component {
   state = {
     currentPage: 'login',
     isLogin: false
   };
-
-  
 
   navigateTo = (page, isLogin) => {
     this.setState({currentPage: page, isLogin: isLogin});
