@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react";
-import Header from './ui/layouts/header';
+import Header from './ui/components/header';
 import Login from './ui/components/login';
 import Register from './ui/components/register';
 import Map from './ui/components/map';
