@@ -1,12 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import AuthConsumerWrap from '../../../AuthConsumer';
 
-const Profile = (props) => {
-    const {isLoggedIn, navigateTo} = props;
-    if(isLoggedIn) {
-        navigateTo('login');
-        return null;
-    }
+const Profile = () => {
     return <h1>Profile</h1>;
 };
 
@@ -15,4 +11,4 @@ Profile.propTypes = {
     navigateTo: PropTypes.func
 }
 
-export default Profile;
+export default AuthConsumerWrap(Profile);

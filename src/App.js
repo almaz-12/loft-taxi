@@ -5,42 +5,38 @@ import Login from './ui/components/login';
 import Register from './ui/components/register';
 import Map from './ui/components/map';
 import Profile from './ui/components/profile';
+import AuthConsumerWrap from './AuthConsumer';
+
 
 class App extends React.Component {
-  state = {
-    currentPage: 'login',
-    isLogin: false
-  };
+  state = {currentPage: 'login'};
 
   navigateTo = (page) => {
-    this.setState({currentPage: page});
+    if(!this.props.isLoggedIn) {
+      this.setState({currentPage: 'login'});
+    } else {
+      this.setState({currentPage: page});
+    }    
   };
 
-  logIn = (isLogin) => {
-    this.setState({currentPage: 'map', isLogin: isLogin});
-  }
-
   pages = {
-    login: <Login navigateTo={this.navigateTo} logIn={this.logIn}/>,
-    register: <Register logIn={this.logIn}/>,
-    map: <Map isLoggedIn={this.state.isLogin} navigateTo={this.navigateTo}/>,
-    profile: <Profile isLoggedIn={this.state.isLogin} navigateTo={this.navigateTo}/>,
+    login: <Login navigateTo={this.navigateTo}/>,
+    register: <Register navigateTo={this.navigateTo}/>,
+    map: <Map navigateTo={this.navigateTo}/>,
+    profile: <Profile navigateTo={this.navigateTo}/>,
   };
 
   render() {
-    return(
-      <div className="App">
-        <section>
-          <div className='mainPage'>
-            { this.state.isLogin && <Header handleClick={this.navigateTo}/> } 
-            <div className='content'>
-              {this.pages[this.state.currentPage]}
-            </div> 
-          </div>        
-        </section> 
-      </div>
+    return(      
+      <div className='mainPage'>
+        { this.props.isLoggedIn && <Header handleClick={this.navigateTo} logout={this.props.logout}/> } 
+        <div className='content'>
+          {this.pages[this.state.currentPage]}
+        </div> 
+      </div>  
     );
   }
 }
 
-export default App;
+
+export default AuthConsumerWrap(App);
