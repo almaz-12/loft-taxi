@@ -5,18 +5,14 @@ import Login from './ui/components/login';
 import Register from './ui/components/register';
 import Map from './ui/components/map';
 import Profile from './ui/components/profile';
-import AuthConsumerWrap from './AuthConsumer';
+import AuthConsumerWrap from './ui/components/auth/AuthConsumer';
 
 
 class App extends React.Component {
   state = {currentPage: 'login'};
 
-  navigateTo = (page) => {
-    if(!this.props.isLoggedIn) {
-      this.setState({currentPage: 'login'});
-    } else {
-      this.setState({currentPage: page});
-    }    
+  navigateTo = (page) => {    
+    this.setState({currentPage: page});   
   };
 
   pages = {

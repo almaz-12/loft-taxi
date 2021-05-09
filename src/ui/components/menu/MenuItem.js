@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import AuthConsumerWrap from '../../../AuthConsumer';
+import AuthConsumerWrap from '../auth/AuthConsumer';
 
 const MenuItem = ({ url, text, handleClick, logout }) => {
     const navigateTo = (event) => {

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AuthConsumerWrap from '../../../AuthConsumer';
+import AuthConsumerWrap from '../auth/AuthConsumer';
 
 const Profile = (props) => {
-    if(props.isLoggedIn) {
+    if(!props.isLoggedIn) {
         props.navigateTo("login")
         return null;
     }

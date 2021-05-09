@@ -1,7 +1,7 @@
 import './Map.css';
 import React from "react";
 import mapboxgl from "mapbox-gl";
-import AuthConsumerWrap from '../../../AuthConsumer';
+import AuthConsumerWrap from '../auth/AuthConsumer';
 
 class Map extends React.Component {
     map = null;
@@ -23,8 +23,8 @@ class Map extends React.Component {
     }
 
     render() {        
-        if(this.props.isLoggedIn) {
-            this.props.navigateTo("login")
+        if(!this.props.isLoggedIn) {
+            this.props.navigateTo("login");
             return null;
         }
         return (

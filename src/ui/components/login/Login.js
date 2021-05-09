@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AuthConsumerWrap from '../../../AuthConsumer';
+import AuthConsumerWrap from '../auth/AuthConsumer';
 
 class Login extends React.Component {
   state = { email: "", password: "" };
@@ -21,7 +21,7 @@ class Login extends React.Component {
 
   navigateToRegister = event => {
     event.preventDefault();
-    this.props.navigateTo('register')
+    this.props.navigateTo('register');
   }
 
   render() {
