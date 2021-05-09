@@ -14,7 +14,7 @@ const Register = ({login,navigateTo}) => {
   }
 
   return (
-    <div className="registerForm">
+    <div className="register-container" data-testid="register-container">
         <h3>Register</h3>
         <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email:</label>

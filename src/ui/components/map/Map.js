@@ -4,7 +4,6 @@ import mapboxgl from "mapbox-gl";
 import AuthConsumerWrap from '../../../AuthConsumer';
 
 class Map extends React.Component {
-
     map = null;
     mapContainer = React.createRef();
 
@@ -30,7 +29,7 @@ class Map extends React.Component {
         }
         return (
             <div className="map-wrapper">
-                <div className="map" ref={this.mapContainer}></div>
+                <div data-testid="map" className="map" ref={this.mapContainer}></div>
             </div>
         );
     }

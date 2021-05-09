@@ -30,7 +30,7 @@ class Login extends React.Component {
       {this.props.isLoggedIn ? (
         this.props.navigateTo("map")
       ) : (
-        <div className='login-form'>
+        <div className='login-container' data-testid="login-container">
           <h3>Войти</h3>
           <form onSubmit={this.handleSubmit}>
             <label htmlFor="email">Email:</label>

@@ -12,8 +12,8 @@ const linkList = [
 const Header = (props) => { 
     const {handleClick} = props;
     return (
-        <header className='main-header'>
-            <div className='main-header-wrap'>
+        <header className="main-header" data-testid="main-header">
+            <div className="main-header-wrap">
                 <Logo/>
                 <Menu linkList={linkList} handleClick={handleClick}/>
             </div>
