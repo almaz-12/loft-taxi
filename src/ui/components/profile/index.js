@@ -1,2 +1,2 @@
-import Profile from './Profile.js';
-export default Profile;
+import { ProfileConnect } from './Profile.js';
+export default ProfileConnect;

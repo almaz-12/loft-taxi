@@ -1,2 +1,2 @@
-import Login from './Login.js';
-export default Login;
+import { LoginConnect } from './Login.js';
+export default LoginConnect;

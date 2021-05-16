@@ -1,2 +1,2 @@
-import Register from './Register.js';
-export default Register;
+import { RegisterConnect } from './Register.js';
+export default RegisterConnect;

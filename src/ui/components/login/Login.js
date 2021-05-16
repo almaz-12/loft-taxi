@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AuthConsumerWrap from '../auth/AuthConsumer';
+import { auth } from "../actions";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import './Login.css';
 
 class Login extends React.Component {
   state = { email: "", password: "" };
@@ -12,39 +15,43 @@ class Login extends React.Component {
  
   handleSubmit = event => {
     event.preventDefault();
-    this.props.login(this.state.email, this.state.password);
+    this.props.auth(this.state.email, this.state.password);
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  navigateToRegister = event => {
-    event.preventDefault();
-    this.props.navigateTo('register');
-  }
-
   render() {
     return (
-      <div>
-      {this.props.isLoggedIn ? (
-        this.props.navigateTo("map")
-      ) : (
-        <div className='login-container' data-testid="login-container">
-          <h3>Войти</h3>
+      <div class="auth-container">      
+        <div className='form-container' data-testid="login-container">
+          <h3 class="form-container-title">Войти</h3>
           <form onSubmit={this.handleSubmit}>
-            <label htmlFor="email">Email:</label>
-            <input id="email" type="email" name="email" onChange={this.handleChange}/>
-            <label htmlFor="password">Пароль:</label>
-            <input id="password" type="password" name="password" onChange={this.handleChange}/>
-            <button type="submit">Войти</button>
-            <a href="#" onClick={this.navigateToRegister}>Зарегистрироваться</a>
+            <div class="form-field-box">
+              <label htmlFor="email">Email:</label>
+              <input id="email" type="email" name="email" placeholder="email@email.com" onChange={this.handleChange}/>
+            </div>
+            <div class="form-field-box">
+              <label htmlFor="password">Пароль:</label>
+              <input id="password" type="password" name="password" placeholder="*************" onChange={this.handleChange}/>
+            </div>
+            <div class="forgot-password">
+              <Link to="/forgot">Забыли пароль ?</Link>
+            </div>
+            
+            <button type="submit" class="btn">Войти</button>
+            <div class="form-footer">
+              Новый пользователь?  <Link to="/register">Регистрация</Link>
+            </div>
           </form>        
         </div>
-      )}
       </div>
     );
   } 
 };
 
-export default AuthConsumerWrap(Login);
+export const LoginConnect = connect(
+  (state) => ({ isLoggedIn: state.isLoggedIn }),
+  { auth }
+)(Login);

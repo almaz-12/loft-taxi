@@ -1,38 +1,46 @@
 import './App.css';
 import React from "react";
 import Header from './ui/components/header';
-import Login from './ui/components/login';
-import Register from './ui/components/register';
+import LoginConnect from './ui/components/login';
+import ProfileConnect from './ui/components/profile';
+import RegisterConnect from './ui/components/register';
 import Map from './ui/components/map';
-import Profile from './ui/components/profile';
-import AuthConsumerWrap from './ui/components/auth/AuthConsumer';
+import Sidebar from './ui/components/sidebar';
+import { connect } from "react-redux";
+import { Switch, Route, Link } from "react-router-dom";
+import { PrivateRoute } from "./PrivateRoute";
+import { Grid } from '@material-ui/core';
 
 
 class App extends React.Component {
-  state = {currentPage: 'login'};
-
-  navigateTo = (page) => {    
-    this.setState({currentPage: page});   
-  };
-
-  pages = {
-    login: <Login navigateTo={this.navigateTo}/>,
-    register: <Register navigateTo={this.navigateTo}/>,
-    map: <Map navigateTo={this.navigateTo}/>,
-    profile: <Profile navigateTo={this.navigateTo}/>,
-  };
-
+  
   render() {
-    return(      
-      <div className='mainPage'>
-        { this.props.isLoggedIn && <Header handleClick={this.navigateTo} logout={this.props.logout}/> } 
-        <div className='content'>
-          {this.pages[this.state.currentPage]}
-        </div> 
-      </div>  
+    return(  
+      <Grid container>
+        { !this.props.isLoggedIn &&  
+          <Grid item xs={4}>
+            <Sidebar/>
+          </Grid>
+        } 
+        <Grid item xs={8}>
+          <div className='mainPage'>
+            { this.props.isLoggedIn && <Header/> } 
+            <div className='content'>
+              <Switch>
+                <Route exact path="/" component={LoginConnect} />
+                <Route path="/register" component={RegisterConnect} />
+                <PrivateRoute path="/map" component={Map} />
+                <PrivateRoute path="/profile" component={ProfileConnect} />
+              </Switch>
+            </div> 
+          </div>  
+        </Grid>
+        
+      </Grid> 
     );
   }
 }
 
+const mapStateToProps = (state) => ({ isLoggedIn: state.isLoggedIn });
 
-export default AuthConsumerWrap(App);
+export default connect(mapStateToProps)(App);

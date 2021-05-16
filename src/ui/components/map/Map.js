@@ -1,7 +1,6 @@
 import './Map.css';
 import React from "react";
 import mapboxgl from "mapbox-gl";
-import AuthConsumerWrap from '../auth/AuthConsumer';
 
 class Map extends React.Component {
     map = null;
@@ -22,11 +21,7 @@ class Map extends React.Component {
         this.map.remove();
     }
 
-    render() {        
-        if(!this.props.isLoggedIn) {
-            this.props.navigateTo("login");
-            return null;
-        }
+    render() { 
         return (
             <div className="map-wrapper">
                 <div data-testid="map" className="map" ref={this.mapContainer}></div>
@@ -35,4 +30,4 @@ class Map extends React.Component {
     }
 };
 
-export default AuthConsumerWrap(Map);
+export default Map;

@@ -1,19 +1,12 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import AuthConsumerWrap from '../auth/AuthConsumer';
+import { Link } from "react-router-dom";
 
-const MenuItem = ({ url, text, handleClick, logout }) => {
-    const navigateTo = (event) => {
-        event.preventDefault();
-        if(url === 'logout') {
-            logout();
-            handleClick("login");
-        } else {
-            handleClick(url);
-        }        
-    }
+const MenuItem = ({ url, text }) => {
     return (
-        <a href={url} onClick={navigateTo}>{text}</a>
+        <Link>
+            <a href={url}>{text}</a>
+        </Link>
     )
 }
 
@@ -21,8 +14,6 @@ const MenuItem = ({ url, text, handleClick, logout }) => {
 MenuItem.propTypes = {
     url: PropTypes.string, 
     text: PropTypes.string, 
-    handleClick: PropTypes.func, 
-    logout: PropTypes.func, 
 }
 
-export default AuthConsumerWrap(MenuItem);
+export default MenuItem;

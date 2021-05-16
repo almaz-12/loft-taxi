@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AuthConsumerWrap from '../auth/AuthConsumer';
+import { connect } from "react-redux";
+import { logOut } from "../actions";
 
 const Profile = (props) => {
     if(!props.isLoggedIn) {
         props.navigateTo("login")
         return null;
     }
-    return <h1>Profile</h1>;
+    return <h1>Профиль <a href="#" onClick={logOut}>Выйти</a></h1>;
 };
 
 Profile.propTypes = {
@@ -15,4 +16,7 @@ Profile.propTypes = {
     navigateTo: PropTypes.func
 }
 
-export default AuthConsumerWrap(Profile);
+export const ProfileConnect = connect(
+    null,
+    { logOut }
+)(Profile);
