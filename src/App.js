@@ -22,7 +22,7 @@ class App extends React.Component {
             <Sidebar/>
           </Grid>
         } 
-        <Grid item xs={8}>
+        <Grid item xs={!this.props.isLoggedIn ? 8 : 12}>
           <div className='mainPage'>
             { this.props.isLoggedIn && <Header/> } 
             <div className='content'>
