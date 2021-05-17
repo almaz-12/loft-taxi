@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 
 const MenuItem = ({ url, text }) => {
     return (
-        <Link>
-            <a href={url}>{text}</a>
-        </Link>
+        <Link to={url}>{text}</Link>
     )
 }
 
