@@ -7,7 +7,7 @@ import RegisterConnect from './ui/components/register';
 import Map from './ui/components/map';
 import Sidebar from './ui/components/sidebar';
 import { connect } from "react-redux";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 import { Grid } from '@material-ui/core';
 
@@ -27,7 +27,9 @@ class App extends React.Component {
             { this.props.isLoggedIn && <Header/> } 
             <div className='content'>
               <Switch>
-                <Route exact path="/" component={LoginConnect} />
+                <Route exact path="/" render={() => {
+                  return this.props.isLoggedIn ? <Redirect to="/map"/> : <LoginConnect />                  
+                }} />
                 <Route path="/register" component={RegisterConnect} />
                 <PrivateRoute path="/map" component={Map} />
                 <PrivateRoute path="/profile" component={ProfileConnect} />
