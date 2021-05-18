@@ -1,2 +1,2 @@
-import { apiLogIn } from './Api';
+import { apiLogIn } from './Auth';
 export default apiLogIn;
