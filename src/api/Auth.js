@@ -12,7 +12,7 @@ export const apiLogIn = async (email, password) => {
         },
         body: JSON.stringify(user)
       }
-    ).then(res => res.json()).then(data => data.success);
+    ).then(res => res.json());
   };
   
   
