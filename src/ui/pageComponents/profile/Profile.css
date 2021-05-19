@@ -27,8 +27,19 @@
 }
 
 .profile-container-subtitle {
+    margin-bottom: 50px;
     text-align: center;
     font-size: 18px;
     line-height: 21px;
     color: #7B7B7B;
+}
+
+.profile-info {
+    margin-bottom: 40px;
+}
+
+.card-view {
+    width: 391px;
+    height: 226px;
+    background: url('../../../assets/images/card.jpg') center/cover no-repeat;
 }
