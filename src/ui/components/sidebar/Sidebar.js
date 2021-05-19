@@ -3,9 +3,9 @@ import logo from './logo-big.png';
 
 const Sidebar = () => { 
     return (
-        <sidebar className="sidebar">
+        <div className="sidebar">
             <img src={logo}/>
-        </sidebar>
+        </div>
     )      
 };
   
