@@ -1,19 +1,17 @@
 import './App.css';
 import React from "react";
-import Header from './ui/components/header';
-import LoginConnect from './ui/components/login';
-import ProfileConnect from './ui/components/profile';
-import RegisterConnect from './ui/components/register';
-import Map from './ui/components/map';
-import Sidebar from './ui/components/sidebar';
+import Header from './ui/pageComponents/header';
+import LoginConnect from './ui/pageComponents/login';
+import ProfileConnect from './ui/pageComponents/profile';
+import RegisterConnect from './ui/pageComponents/register';
+import Map from './ui/pageComponents/map';
+import Sidebar from './ui/pageComponents/sidebar';
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 import { Grid } from '@material-ui/core';
 
-
-class App extends React.Component {
-  
+class App extends React.Component {  
   render() {
     return(  
       <Grid container>
@@ -36,8 +34,7 @@ class App extends React.Component {
               </Switch>
             </div> 
           </div>  
-        </Grid>
-        
+        </Grid>        
       </Grid> 
     );
   }

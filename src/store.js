@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from "redux";
-import reducer from "./reducers";
-import authMiddleware from "./middleware";
+import reducer from "./components/reducers";
+import authMiddleware from "./components/middleware";
 
 export const store = createStore(reducer,applyMiddleware(authMiddleware));
