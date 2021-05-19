@@ -1,2 +1,2 @@
-import Menu from './Menu.js';
-export default Menu;
+import { MenuConnect } from './Menu.js';
+export default MenuConnect;

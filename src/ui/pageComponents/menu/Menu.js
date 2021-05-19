@@ -2,6 +2,8 @@ import './Menu.css';
 import React from "react";
 import MenuItem from "./MenuItem";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logOut } from "../../../components/actions";
 
 class Menu extends React.Component {
     static propTypes = {
@@ -12,11 +14,14 @@ class Menu extends React.Component {
         return (
             <ul className='menu'>
                 {this.props.linkList.map(linkItem => (
-                    <MenuItem key={linkItem.id} text={linkItem.text} url={linkItem.url} handleClick={this.props.handleClick}/>
+                    <MenuItem key={linkItem.id} text={linkItem.text} url={linkItem.url} handleLogOut={this.props.logOut}/>
                 ))}
             </ul>
         );
     }
 }
 
-export default Menu;
+export const MenuConnect = connect(
+    null,
+    { logOut }
+)(Menu);
