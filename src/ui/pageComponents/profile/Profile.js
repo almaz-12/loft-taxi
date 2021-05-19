@@ -2,13 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logOut } from "../../../components/actions";
+import './Profile.css';
 
-const Profile = (props) => {
-    if(!props.isLoggedIn) {
-        props.navigateTo("login")
-        return null;
-    }
-    return <h1>Профиль <a href="#" onClick={logOut}>Выйти</a></h1>;
+const Profile = () => {
+    return (
+        <div className="profile-container"> 
+            <div className="profile-container-wrap" data-testid="profile-container">
+                <h3 className="profile-container-title">Профиль</h3>
+                <div className="profile-container-subtitle">Введеите платежные данные</div>
+                <button type="submit" className="btn">Сохранить</button>
+            </div>            
+        </div>
+    );
 };
 
 Profile.propTypes = {
