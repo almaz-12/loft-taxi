@@ -1,3 +1,3 @@
-import auth from "./Auth";
+import auth from "./authReducer";
 
 export default auth;

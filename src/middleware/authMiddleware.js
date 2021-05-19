@@ -7,6 +7,7 @@ export const authMiddleware = (store) => (next) => async (action) => {
     const data = await apiLogIn(email, password)
     if(data.success){
       store.dispatch(logIn(data.token));
+      localStorage.setItem("token", data.token);
     } else {
       store.dispatch(logInError(data.error));
     }
