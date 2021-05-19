@@ -14,25 +14,25 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div class="auth-container">  
+      <div className="auth-container">  
         <div className="form-container" data-testid="register-container">
-          <h3 class="form-container-title">Регистрация</h3>
+          <h3 className="form-container-title">Регистрация</h3>
           <form>
-            <div class="form-field-box">
+            <div className="form-field-box">
               <label htmlFor="email">Email</label>
               <input id="email" type="email" name="email" size="28" placeholder="email@email.com"/>
             </div>
-            <div class="form-field-box">
+            <div className="form-field-box">
               <label htmlFor="password">Как вас зовут ?</label>
               <input id="password" type="text" name="name" />
             </div>
-            <div class="form-field-box">
+            <div className="form-field-box">
               <label htmlFor="password">Придумайте пароль:</label>
               <input id="password" type="password" name="password" size="28" />
             </div>
            
-            <button type="submit" class="btn">Зарегистрироваться</button>
-            <div class="form-footer">
+            <button type="submit" className="btn">Зарегистрироваться</button>
+            <div className="form-footer">
             Уже зарегестированы ?  <Link to="/">Войти</Link>
             </div>
             

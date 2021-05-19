@@ -24,24 +24,24 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div class="auth-container">      
+      <div className="auth-container">      
         <div className='form-container' data-testid="login-container">
-          <h3 class="form-container-title">Войти</h3>
+          <h3 className="form-container-title">Войти</h3>
           <form onSubmit={this.handleSubmit}>
-            <div class="form-field-box">
+            <div className="form-field-box">
               <label htmlFor="email">Email:</label>
               <input id="email" type="email" name="email" placeholder="email@email.com" onChange={this.handleChange}/>
             </div>
-            <div class="form-field-box">
+            <div className="form-field-box">
               <label htmlFor="password">Пароль:</label>
               <input id="password" type="password" name="password" placeholder="*************" onChange={this.handleChange}/>
             </div>
-            <div class="forgot-password">
+            <div className="forgot-password">
               <Link to="/forgot">Забыли пароль ?</Link>
             </div>
             
-            <button type="submit" class="btn">Войти</button>
-            <div class="form-footer">
+            <button type="submit" className="btn">Войти</button>
+            <div className="form-footer">
               Новый пользователь?  <Link to="/register">Регистрация</Link>
             </div>
           </form>        
