@@ -1,0 +1,13 @@
+.form-field-box + .form-field-box {
+    margin-top: 25px;
+}
+
+.forgot-password {
+    margin-top: 12px;
+    text-align: right;
+}
+
+.forgot-password a {
+    line-height: 19px;    
+    color: #828282;
+}
